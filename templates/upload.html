@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} {% endblock %}
+
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning">
+    {{message}}
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+    </button> -->
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="container-fluid px-4">
+<h1 class="mt-4">Upload</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">File</li>
+</ol>
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Form Upload File
+    </div>
+    <div class="card-body text-center">
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

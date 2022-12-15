@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} {% endblock %}
+
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning">
+    {{message}}
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+    </button> -->
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="container-fluid px-4">
+<h1 class="mt-4">Preprocessing</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cleaning, Seleksi, Transformasi</li>
+</ol>
+<div class="row justify-content-between">
+    <div class="col-md-4">
+    <div class="card mb-4 mt-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Data Training
+        </div>
+        <div class="card-body text-center">
+            <form action="" method="post">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+{% if request.method == 'POST' %}
+<!-- ============================ -->
+<h3 class="mt-4">Cleaning</h3>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    {% for head in dataCleaningHead %}
+                    <th>{{ head }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for row in dataCleaning %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ============================ -->
+<h3 class="mt-4">Seleksi</h3>
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple1">
+            <thead>
+                <tr>
+                    {% for head in dataSeleksiHead %}
+                    <th>{{head}}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for row in dataSeleksi %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ============================ -->
+<h3 class="mt-4">Transformasi</h3>
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple2">
+            <thead>
+                <tr>
+                    {% for head in dataTransformasiHead %}
+                    <th>{{head}}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in dataTransformasi %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endif %}
+
+</div>
+{% endblock %}

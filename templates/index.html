@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %}
+<script>
+    function confirmtDelete() {
+        return confirm("Yakin ingin hapus?");
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+<h1 class="mt-4">Dashboard</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
+
+<a href="{{url_for('delete')}}" class="btn btn-danger mb-2" onclick="alertDelete()">
+    <i class="fas fa-fw fa-trash"></i>
+    Hapus
+    Semua Data
+</a>
+
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Ref. OSS</th>
+                    <th>Nomor Induk Kependudukan</th>
+                    <th>Nama Lengkap</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Usia</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Pendidikan</th>
+                    <th>No. Telepon</th>
+                    <th>Email</th>
+                    <th>Provinsi</th>
+                    <th>Kabupaten/Kota</th>
+                    <th>Kecamatan</th>
+                    <th>Desa</th>
+                    <th>Nama Jalan</th>
+                    <th>Nama Usaha</th>
+                    <th>NIB</th>
+                    <th>Tanggal Terbit NIB</th>
+                    <th>Tanggal Pendirian Usaha</th>
+                    <th>Koordinat</th>
+                    <th>Bidang Usaha</th>
+                    <th>Sektor Usaha</th>
+                    <th>Kegiatan Usaha</th>
+                    <th>Produk Komoditas Ekspor</th>
+                    <th>Tujuan Pemasaran</th>
+                    <th>Status Kepemilikan Tanah</th>
+                    <th>Sarana Media Elektronik</th>
+                    <th>Modal Bantuan Pemerintah</th>
+                    <th>Pinjaman</th>
+                    <th>Omset Pertahun</th>
+                    <th>Kepemilikan Asuransi Kesehatan</th>
+                    <th>Tenaga Kerja Laki-Laki</th>
+                    <th>Tenaga Kerja Perempuan</th>
+                    <th>Rerata Usia Pekerja</th>
+                    <th>Status Formulir</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for row in result %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>{{row[6]}}</td>
+                    <td>{{row[7]}}</td>
+                    <td>{{row[8]}}</td>
+                    <td>{{row[9]}}</td>
+                    <td>{{row[10]}}</td>
+                    <td>{{row[11]}}</td>
+                    <td>{{row[12]}}</td>
+                    <td>{{row[13]}}</td>
+                    <td>{{row[14]}}</td>
+                    <td>{{row[15]}}</td>
+                    <td>{{row[16]}}</td>
+                    <td>{{row[17]}}</td>
+                    <td>{{row[18]}}</td>
+                    <td>{{row[19]}}</td>
+                    <td>{{row[20]}}</td>
+                    <td>{{row[21]}}</td>
+                    <td>{{row[22]}}</td>
+                    <td>{{row[23]}}</td>
+                    <td>{{row[24]}}</td>
+                    <td>{{row[25]}}</td>
+                    <td>{{row[26]}}</td>
+                    <td>{{row[27]}}</td>
+                    <td>{{row[28]}}</td>
+                    <td>{{row[29]}}</td>
+                    <td>{{row[30]}}</td>
+                    <td>{{row[31]}}</td>
+                    <td>{{row[32]}}</td>
+                    <td>{{row[33]}}</td>
+                    <td>{{row[34]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{% endblock %}
